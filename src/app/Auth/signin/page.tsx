@@ -1,0 +1,107 @@
+'use client';
+import { signIn, useSession} from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { redirect } from 'next/navigation';
+import { LoadingScreen } from '@/components/LoadingScreen/LoadingScreen';
+
+export default function Signin() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
+
+  const { status } = useSession()
+
+  if (status === "authenticated") {
+    redirect('/Dashboard');
+  }
+  if (status === "loading") {
+   return(
+    <LoadingScreen />
+   )
+  }if(status === "unauthenticated"){
+    return (
+      <main className='h-screen w-screen flex items-center justify-center bg-orange-400'>
+      <div className="bg-white bg-opacity-95 flex sm:max-h-max sm:max-w-lg sm:rounded-xl sm:shadow-2xl shadow-orange-300 flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          {/* <img
+            className="mx-auto h-10 w-auto"
+            src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=500"
+            alt="Your Company"
+          /> */}
+          <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-black">
+            Sign in to IOT-Console
+          </h2>
+        </div>
+
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <div className="space-y-6">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium leading-6 text-black" >
+                Email address
+              </label>
+              <div className="mt-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder='UserName@example.com'
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="block w-full rounded-md border-0  py-1.5 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between">
+                <label htmlFor="password" className="block text-sm font-medium leading-6 text-black">
+                  Password
+                </label>
+                <div className="text-sm">
+                  <div onClick={() => router.push('/Auth/forgot-password')} className="cursor-pointer font-semibold text-orange-500 hover:text-orange-400">
+                    Forgot password?
+                  </div>
+                </div>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder='password'
+                  autoComplete="current-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <button
+                onClick={() => signIn('credentials', {email, password, redirect: true, callbackUrl: '/Dashboard'})}
+                disabled={!email || !password}
+                className="disabled:opacity-40  flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+              >
+                Sign in
+              </button>
+            </div>
+          </div>
+
+          {/* <p className="mt-10 text-center text-sm text-gray-400">
+            Not a member?{' '}
+            <button onClick={() => router.push('signup')} className="font-semibold leading-6 text-orange-500 hover:text-orange-400">
+              Sign Up
+            </button>
+          </p> */}
+        </div>
+      </div>
+      </main>
+    )
+  }
+   
+
+  
+}
