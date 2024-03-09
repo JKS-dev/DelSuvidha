@@ -12,6 +12,8 @@ export default async function RootLayout({
     <html lang="en" >
       <body>
       <SessionProvider>
+      <SpeedInsights/>
+      <Analytics/>
         <NavBar />
         {children}
       </SessionProvider>
