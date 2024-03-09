@@ -30,7 +30,7 @@ export function useRTDB_Fetch() {
       console.error(error);
     });
 
-  }, [users, userDataPath]);
+  }, [userDataPath]);
 
   return (
    users
