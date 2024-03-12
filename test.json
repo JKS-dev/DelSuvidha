@@ -1,0 +1,69 @@
+{
+    "<diseCodeOfSchool>": {
+        "SchoolName": "(SchoolName)",
+        "SchoolId": "(SchoolId)",
+        "DiseCode": "(DiseCode)",
+        "Address":"(Address)",
+        "Classes":["(Class1Boolean)","(Class2Boolean)"],
+        "Description":"(Description)",
+        "Cabinet":{
+            "<studentPost>":"<studentId>"
+        },
+        "Students":{
+            "<studentId>":{
+                "Medium":"(mediumOfStudent)",
+                "RollNo.": "(rollNo)",
+                "StudentId": "(ScholarN)",
+                "StudentMobile": 1231231234,
+                "Name": "(studentName)",
+                "ClassId": ["(class)", "(section)"],
+                "Stream": "(stream)",
+                "Subjects": ["subject1", "subject2"],
+                "Email": "(email)",
+                "DOB": "(DateOfBirth)",
+                "lastLogin": "(TimeStampOfLogin)",
+                "Data":{
+                    "IsBPL": "(Boolean)",
+                    "Aadhar": 123412341234,
+                    "StudentSamagra": 123456789,
+                    "FamilySamagra": 1234567,
+                    "Bank": 12341234123,
+                    "IFSC": "(IFSC)"
+                },
+                "Father": "(FatherName)",
+                "FatherMobile": 1231231234,
+                "Mother": "(MotherName)",
+                "MotherMobile": 1231231234,
+                "Address": "(Address)",
+                "Guardian":{
+                    "Name": "(name)",
+                    "Address": "(Address)",
+                    "Mobile": "1231231234"
+                },
+                "Fee": {
+                    "TotalFee": "(totalFee)",
+                    "PaidFee": "(paidFee)",
+                    "Balance": "(balance)"
+                },
+                "Attendence":{
+                    "<TimeStamp>": "(Boolean)"
+                },
+                "ExamScore": {
+                    "Quaterly":["(subject1Score)","(subject2Score)"],
+                    "HalfYearly":["(subject1Score)","(subject2Score)"],
+                    "Final":["(subject1Score)","(subject2Score)"]
+                }
+            }
+        },
+        "Teachers":{
+            "<teacherId>":{
+                "Post": "(postOfTeacher)",
+                "Name": "(studentName)",
+                "ClassId": ["(class)", "(section)"],
+                "Subjects": ["subject1", "subject2"],
+                "Email": "(email)",
+                "Address":"(Address)"
+            }
+        }
+    }
+}

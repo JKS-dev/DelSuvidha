@@ -25,6 +25,7 @@ export function useRTDB_Fetch() {
       }
       else {
         console.log(' No data Available');
+        
       }
     }).catch((error) => {
       console.error(error);
