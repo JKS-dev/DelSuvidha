@@ -2,25 +2,30 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { PlayCircleIcon, UserCircleIcon } from '@heroicons/react/20/solid'
-import { UserData } from '../rtdbFetch/userData'
+import {getData} from '../rtdbFetch/FetchData'
 import {
   UserIcon,
   BellAlertIcon,
-  ArrowLeftStartOnRectangleIcon
+  ArrowLeftStartOnRectangleIcon,
+  Cog6ToothIcon
 } from '@heroicons/react/24/outline'
+import { signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react'
 
-
-const UserProfile = [
-  { name: 'Welcome', description: <UserData data="name" />, href: '/Profile', icon: UserIcon }
-]
-const LogoutAction = [
-  {
-    name: 'Logout', href: '#', icon: ArrowLeftStartOnRectangleIcon},
-
-]
-
-export function UserFloatingMenu() {
-
+export function UserFloatingMenu(props) {
+  
+  const session = useSession();
+  const UserProfile = [
+    { name: 'Welcome', description: props.name, href: '#', icon: UserIcon }
+  ]
+  const Settings = [
+    { name: 'Settings', href: '#', icon: Cog6ToothIcon }
+  ]
+  const LogoutAction = [
+    {
+      name: 'Logout', href: '#', icon: ArrowLeftStartOnRectangleIcon},
+  
+  ]
 
   return (
     <Popover>
@@ -41,14 +46,14 @@ export function UserFloatingMenu() {
       >
         <Popover.Panel className="absolute right-0 z-10 mt-5 flex w-screen max-w-max  px-4">
           <div className=" max-w-md flex-auto overflow-hidden rounded-lg bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div className="p-2">
+            <div className="px-2 pt-2 pb-1">
               {UserProfile.map((item) => (
                 <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                   <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                    <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                    <item.icon className="h-6 w-6 text-gray-600 group-hover:text-black" aria-hidden="true" />
                   </div>
                   <div>
-                    <a href={item.href} className="font-semibold text-gray-900">
+                    <a href={item.href} className="font-semibold text-gray-900 ">
                       {item.name}
                       <span className="absolute inset-0" />
                     </a>
@@ -57,14 +62,28 @@ export function UserFloatingMenu() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-0 divide-x divide-gray-900/5 bg-gray-50">
+            <div className="px-2 pb-2 pt-1">
+              {Settings.map((item) => (
+                <div key={item.name} className="group relative items-center flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                  <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                    <item.icon className="h-6 w-6 text-gray-600 group-hover:text-black" aria-hidden="true" />
+                  </div>
+                  <div >
+                    <a href={item.href} className="font-semibold text-gray-900">
+                      {item.name}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-0 divide-x divide-gray-900/5 bg-black hover:opacity-80">
               {LogoutAction.map((item) => (
                 <a
                   key={item.name}
-                  href={item.href}
-                  className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
+                  onClick={() => signOut()}
+                  className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-white"
                 >
-                  <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                  <item.icon className="h-5 w-5 flex-none text-white" aria-hidden="true" />
                   {item.name}
                 </a>
               ))}

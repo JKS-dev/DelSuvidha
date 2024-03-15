@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/auth/[...nextauth].js", "src/app/SessionProvider.tsx", "src/app/layout.tsx", "src/app/Auth/signup/page.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/auth/[...nextauth].js", "src/app/SessionProvider.tsx", "src/app/layout.tsx", "src/app/Auth/signup/page.js", "src/app/firebase.JS"],
   "exclude": ["node_modules"]
 }

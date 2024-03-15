@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { Abril_Fatface } from "next/font/google";
 import {UserFloatingMenu} from '@/components/FloatingMenu/UserFloatingMenu'
+import { SimpleBtn } from '../Btn/Btn';
 const abrilFatface = Abril_Fatface({weight: '400', subsets: ["latin"] });
 
 export function NavBar() {
@@ -22,9 +23,7 @@ export function NavBar() {
                 <div className='flex gap-4 items-center'>
                         {
                             pathName[1] !== "Dashboard"?
-                        <button onClick={()=>(router.push("/Auth/signin"))} className={styles.btn} >
-                            Login
-                        </button>
+                        <SimpleBtn onClick={()=>(router.push("/Auth/signin"))} text="Login"  />
                          :<UserFloatingMenu />
                         }
                 </div>

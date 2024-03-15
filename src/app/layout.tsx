@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import { NavBar } from '@/components/NavBar/NavBar';
 import SessionProvider from './SessionProvider';
 import "@/styles/globals.css"
@@ -10,6 +11,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" >
+      <head><script src="http://localhost:8097"></script></head>
       <body>
       <SessionProvider>
       <SpeedInsights/>
