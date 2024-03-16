@@ -22,7 +22,7 @@ export const encryptData = (data) => {
 };
 
 export const decryptData = (encryptedData) => {
-  return fetch(process.env.NEXT_PUBLIC_BASE_URL +'/api/decrypt', {
+  return fetch('/api/decrypt', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
