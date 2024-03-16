@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 };
 
-// Initialize Firebase
+// Initialize Forebase
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const rtdb = getDatabase(app);
 const auth = getAuth();
