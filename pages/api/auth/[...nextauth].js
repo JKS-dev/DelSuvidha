@@ -33,7 +33,7 @@ export const authOptions = {
   ],
   jwt: {
     encryption: true, // Enable encryption for JWT
-    secret: process.env.NEXTAUTH_SECRET, // Secret used to encrypt JWT
+    secret: process.env.DECRYPTION_KEY, // Secret used to encrypt JWT
   },
   callbacks: {
        async session({ session, token, user }) {
