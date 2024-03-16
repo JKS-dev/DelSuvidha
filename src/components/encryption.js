@@ -1,7 +1,7 @@
 
 
 export const encryptData = (data) => {
-  return fetch('/api/encrypt', {
+  return fetch(process.env.NEXT_PUBLIC_BASE_URL + 'api/encrypt', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
