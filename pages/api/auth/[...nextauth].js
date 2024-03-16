@@ -1,9 +1,9 @@
-import NextAuth from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "@/app/firebase";
 import { encryptData } from '@/components/encryption'
-
+import CredentialsProvider from "next-auth/providers/credentials";
+import NextAuth from "next-auth"
+import { redirect } from 'next/navigation'
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -15,19 +15,22 @@ export const authOptions = {
       name: 'Credentials',
       credentials: {},
       async authorize(credentials) {
-        return await signInWithEmailAndPassword(auth, credentials.email || '', credentials.password || '')
-          .then(userCredential => {
-            if (userCredential.user) {
-              return userCredential.user;
-            }
-            return null;
-          })
-          .catch(error => (console.log(error)))
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(error);
-          });
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, credentials.email || '', credentials.password || '');
+          if (userCredential.user) {
+            return userCredential.user;
+          }
+          return null;
+        } catch (error) {
+          // Handle Firebase authentication error
+          const errorCode = error.code;
+          const errorMessage = errorCode.split("/")[1]
+          console.log(errorMessage);
+ 
+          // throw new errorMessage[1]
+          // throw new Error('Auth/signin/'+errorMessage[1]);
+          // return(errorCode);
+        }
       }
     })
   ],
@@ -36,13 +39,12 @@ export const authOptions = {
     secret: process.env.NEXTAUTH_SECRET, // Secret used to encrypt JWT
   },
   callbacks: {
-       async session({ session, token, user }) {
-       const refpath = "users/" + auth.currentUser.uid;
-       try {
+    async session({ session, token, user }) {
+      const refpath = "users/" + auth.currentUser.uid;
+      try {
         const encryptedData = await encryptData(refpath);
         console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
         console.log('Encrypted data:', encryptedData);
-        
         session.user.refPath = encryptedData;
       } catch (error) {
         console.error('Encryption failed:', error);

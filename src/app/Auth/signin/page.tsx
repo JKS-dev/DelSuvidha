@@ -29,8 +29,8 @@ export default function Signin() {
             src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=500"
             alt="Your Company"
           /> */}
-          <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-black">
-            Sign in to IOT-Console
+          <h2 className="text-center text-3xl font-bold leading-9 tracking-tight text-black">
+            Sign In
           </h2>
         </div>
 
@@ -81,7 +81,7 @@ export default function Signin() {
 
             <div>
               <button
-                onClick={() => signIn('credentials', {email, password, redirect: true, callbackUrl: '/Dashboard'})}
+                onClick={() => signIn('credentials', {email, password, redirect: false, callbackUrl: '/Dashboard'})}
                 disabled={!email || !password}
                 className="disabled:opacity-40  flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
               >
@@ -90,12 +90,12 @@ export default function Signin() {
             </div>
           </div>
 
-          {/* <p className="mt-10 text-center text-sm text-gray-400">
+          <p className="mt-4 text-center text-sm text-gray-400">
             Not a member?{' '}
-            <button onClick={() => router.push('signup')} className="font-semibold leading-6 text-orange-500 hover:text-orange-400">
+            <button onClick={() => router.push('/Auth/signup')} className="font-semibold leading-6 text-orange-500 hover:text-orange-400">
               Sign Up
             </button>
-          </p> */}
+          </p>
         </div>
       </div>
       </main>

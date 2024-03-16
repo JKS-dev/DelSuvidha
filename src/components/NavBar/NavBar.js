@@ -1,6 +1,8 @@
 'use client';
 import { usePathname } from 'next/navigation';
+import Image from "next/image";
 import styles from '@/styles/navbar.module.css'
+import Logo from '../../../public/Logo.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { Abril_Fatface } from "next/font/google";
@@ -18,7 +20,17 @@ export function NavBar() {
                 pathName[1] !== "Auth"?
                 <div className={styles.NavBar}>
                 <div style={abrilFatface.style} onClick={()=>(router.push("/"))} className={styles.Logo}>
-                    IOT-Console
+                <Link href='/' className="flex h-full items-center font-Logo">
+                    <Image
+                        src={Logo}
+                        alt="Logo"
+                        width="144"
+                        height="48"
+                        className='cursor-pointer m-2'
+                        priority
+                    />
+
+                </Link>
                 </div>
                 <div className='flex gap-4 items-center'>
                         {
