@@ -4,7 +4,7 @@ import CryptoJS from 'crypto-js';
 
 export default function handler(req, res) {
   const { encryptedData } = req.body;
-  const key = process.env.DECRYPTION_KEY; // Get your encryption key from environment variables
+  const key = process.env.NEXTAUTH_SECRET; // Get your encryption key from environment variables
 
   try {
     const decryptedData = CryptoJS.AES.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
