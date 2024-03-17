@@ -45,18 +45,25 @@ export default function Signup() {
       }
     })
     signIn('credentials', {email, password, redirect: false, callbackUrl: '/Auth/signin'})
-    if(userCreated === true){
-      setName("");
-      setEmail("");
-      setPassword("");
-      setPasswordAgain("");
-      alert("user created sucessfully now Login");
-      signOut( {redirect:true, callbackUrl:'/Auth/signin'});
+
+    try {
+      if(userCreated === true){
+        setName("");
+        setEmail("");
+        setPassword("");
+        setPasswordAgain("");
+        alert("user created sucessfully please Login");
+        signOut( {redirect:true, callbackUrl:'/Auth/signin'});
+        
+      }
+    } catch (error) {
       
-    }else{
-      alert("Technical error Please try again later");
+      alert(error);
       signOut( {redirect:false, callbackUrl:'/Auth/signin'});
     }
+
+   
+  
 
   };
   
