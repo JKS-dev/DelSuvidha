@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { toast, ToastContainer } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import 'react-toastify/dist/ReactToastify.css';
+import { Suspense } from 'react'
 export default function Signin() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -29,7 +30,7 @@ useEffect(()=>{
    )
   }if(status === "unauthenticated"){
     return (
-    
+      <Suspense>
       <main className='h-screen w-screen flex items-center justify-center bg-orange-400'>
       <div className="bg-white bg-opacity-95 flex sm:max-h-max sm:max-w-lg sm:rounded-xl sm:shadow-2xl shadow-orange-300 flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -108,7 +109,7 @@ useEffect(()=>{
         </div>
       </div>
       </main>
-     
+      </Suspense>
     )
   }
    
