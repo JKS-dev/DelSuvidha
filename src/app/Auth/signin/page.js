@@ -18,7 +18,7 @@ export default function Signin() {
 useEffect(()=>{
   const error = searchParams.get("error");
   error !== null && toast.error(error);
-},[])
+},[searchParams])
 
   if (status === "authenticated") {
     redirect('/Dashboard');
