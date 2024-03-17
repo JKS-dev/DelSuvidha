@@ -3,7 +3,7 @@ import { auth } from "@/app/firebase";
 import { encryptData } from '@/components/encryption'
 import CredentialsProvider from "next-auth/providers/credentials";
 import NextAuth from "next-auth"
-import {Jks } from '@/components/Error/error';
+
 
 export const authOptions = {
   // Configure one or more authentication providers
