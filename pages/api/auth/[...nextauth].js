@@ -8,7 +8,8 @@ import {Jks } from '@/components/Error/error';
 export const authOptions = {
   // Configure one or more authentication providers
   pages: {
-    signIn: '/Auth/signin'
+    signIn: '/Auth/signin',
+    error: '/Auth/signin',
   },
   providers: [
     CredentialsProvider({
@@ -26,9 +27,9 @@ export const authOptions = {
           const errorCode = error.code;
           const errorMessage = errorCode.split("/")[1]
           console.log(errorMessage);
-      
+          // isClientError(error)
           // throw new errorMessage[1]
-          // throw new Error('Auth/signin/'+errorMessage[1]);
+          throw new Error(errorMessage);
           // return(errorCode);
         }
       }

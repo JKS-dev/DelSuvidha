@@ -11,7 +11,6 @@ export default function Signin() {
   const router = useRouter();
 
   const { status } = useSession()
-
   if (status === "authenticated") {
     redirect('/Dashboard');
   }
@@ -105,3 +104,4 @@ export default function Signin() {
 
   
 }
+
