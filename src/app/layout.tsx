@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Suspense } from 'react'
 export default async function RootLayout({
   children,
 }: {
@@ -15,11 +16,13 @@ export default async function RootLayout({
     <html lang="en" >
       <body>
       <SessionProvider>
+      <Suspense>
       <SpeedInsights/>
       <Analytics/>
         <NavBar />
         <ToastContainer />
         {children}
+        </Suspense>
       </SessionProvider>
       </body>
     </html>
