@@ -1,16 +1,25 @@
 'use client';
 import { signIn, useSession} from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
 import { LoadingScreen } from '@/components/LoadingScreen/LoadingScreen';
-
+import { useSearchParams } from "next/navigation";
+import { toast, ToastContainer } from 'react-toastify';
+import { useRouter } from 'next/navigation';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Signin() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
-
+ 
   const { status } = useSession()
+
+useEffect(()=>{
+  const error = searchParams.get("error");
+  error !== null && toast.error(error);
+},[])
+
   if (status === "authenticated") {
     redirect('/Dashboard');
   }
@@ -20,6 +29,7 @@ export default function Signin() {
    )
   }if(status === "unauthenticated"){
     return (
+    
       <main className='h-screen w-screen flex items-center justify-center bg-orange-400'>
       <div className="bg-white bg-opacity-95 flex sm:max-h-max sm:max-w-lg sm:rounded-xl sm:shadow-2xl shadow-orange-300 flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -82,7 +92,7 @@ export default function Signin() {
               <button
                 onClick={() => signIn('credentials', {email, password, redirect: true, callbackUrl: '/Dashboard'})}
                 disabled={!email || !password}
-                className="disabled:opacity-40  flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+                className="disabled:cursor-not-allowed disabled:opacity-40  flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
               >
                 Sign in
               </button>
@@ -98,6 +108,7 @@ export default function Signin() {
         </div>
       </div>
       </main>
+     
     )
   }
    
