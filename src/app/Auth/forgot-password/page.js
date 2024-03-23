@@ -4,13 +4,16 @@ import { auth } from '../../firebase';
 import { sendPasswordResetEmail } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/navigation';
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
+  const router = useRouter();
 
 async function resetEmail(){
     try{
       await sendPasswordResetEmail(auth, email).then(() => {
-        toast.success('Email Sent')
+        toast.success('Email Sent');
+        router.push("/Auth/signin")
       })
     }catch(error) {
           const errorCode = error.code;
@@ -21,8 +24,8 @@ async function resetEmail(){
   };
 
   return (
-    <main className='h-screen w-screen flex items-center justify-center bg-orange-400'>
-      <div className="bg-white bg-opacity-95 flex sm:max-h-max sm:max-w-lg sm:rounded-xl sm:shadow-2xl shadow-orange-300 flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
+    <main className=' h-screen w-screen flex items-center justify-center bg-orange-400 overflow-y-hidden'>
+      <div className="bg-white h-screen bg-opacity-95 flex sm:h-max sm:max-w-lg sm:rounded-xl sm:shadow-2xl shadow-orange-300 flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
          
           <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-black">
