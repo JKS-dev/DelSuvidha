@@ -101,7 +101,7 @@ return(
       Doubt
     </h5>
     <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-      Because it's about motivating the doers. Because I'm here to follow my
+      Because it is about motivating the doers. Because I am here to follow my
       dreams and inspire others.
     </p>
   </div>
@@ -136,7 +136,7 @@ return(
       UI/UX Review Check
     </h5>
     <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-      Because it's about motivating the doers. Because I'm here to follow my
+      Because it is about motivating the doers. Because I am here to follow my
       dreams and inspire others.
     </p>
   </div>
@@ -171,7 +171,7 @@ return(
       UI/UX Review Check
     </h5>
     <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-      Because it's about motivating the doers. Because I'm here to follow my
+      Because it is about motivating the doers. Because I am here to follow my
       dreams and inspire others.
     </p>
   </div>
@@ -206,7 +206,7 @@ return(
       UI/UX Review Check
     </h5>
     <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-      Because it's about motivating the doers. Because I'm here to follow my
+      Because it is about motivating the doers. Because I am here to follow my
       dreams and inspire others.
     </p>
   </div>
@@ -241,7 +241,7 @@ return(
       UI/UX Review Check
     </h5>
     <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-      Because it's about motivating the doers. Because I'm here to follow my
+      Because it is about motivating the doers. Because I am here to follow my
       dreams and inspire others.
     </p>
   </div>
