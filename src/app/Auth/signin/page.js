@@ -1,5 +1,6 @@
 'use client';
 import { signIn, useSession } from 'next-auth/react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
 import { LoadingScreen } from '@/components/LoadingScreen/LoadingScreen';
@@ -7,6 +8,7 @@ import { useSearchParams } from "next/navigation";
 import { toast, ToastContainer } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import 'react-toastify/dist/ReactToastify.css';
+import { auth } from '@/app/firebase';
 
 
 export default function Signin() {
@@ -15,7 +17,7 @@ export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { status } = useSession()
+  const { data: session, status, update } = useSession()
 
   useEffect(() => {
     const error = searchParams.get("error");
@@ -61,39 +63,56 @@ export default function Signin() {
             required
             className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-orange-600 peer" placeholder=" "
           />
-        
+
           <label
             for="password"
             className="absolute text-sm  text-gray-500  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/3 peer-placeholder-shown:top-1/3 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
             Password
           </label>
           <div className="text-sm text-right ">
-          <div onClick={() => router.push('/Auth/forgot-password')} className="cursor-pointer font-semibold text-orange-500 hover:text-orange-400">
-            Forgot password?
-          </div>
-          </div>
-          </div>
-        
-          <div className="relative w-full  px-2 md:w-1/2 sm:w-3/4 max-w-lg md:max-w-lg">
-            
-              <button
-                onClick={() => signIn('credentials', { email, password, redirect: true, callbackUrl: '/Dashboard' })}
-                disabled={!email || !password}
-                className="disabled:cursor-not-allowed disabled:opacity-40  flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-              >
-                Sign in
-              </button>
-           
-
-            <p className="mt-4 text-center text-sm text-gray-400">
-              Not a member?{' '}
-              <button onClick={() => router.push('/Auth/signup')} className="font-semibold leading-6 text-orange-500 hover:text-orange-400">
-                Sign Up
-              </button>
-            </p>
+            <div onClick={() => router.push('/Auth/forgot-password')} className="cursor-pointer font-semibold text-orange-500 hover:text-orange-400">
+              Forgot password?
+            </div>
           </div>
         </div>
-        )
+
+        <div className="relative w-full  px-2 md:w-1/2 sm:w-3/4 max-w-lg md:max-w-lg">
+
+          <button
+
+            onClick={() => {
+              signIn('credentials', { email, password, redirect: true, callbackUrl: `/Dashboard` })}}
+            //   .then(() => {
+
+            //     signInWithEmailAndPassword(auth, email, password).then(() => {
+            //       const refpath = auth.currentUser.uid;
+            //       console.log(refpath);
+            //       router.push({
+            //         pathname: '/search',
+            //         query: { keyword: 'this way' },
+            //       })
+
+            //     })
+            //   })
+            // }}
+
+
+            disabled={!email || !password}
+            className="disabled:cursor-not-allowed disabled:opacity-40  flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+          >
+            Sign in
+          </button>
+
+
+          <p className="mt-4 text-center text-sm text-gray-400">
+            Not a member?{' '}
+            <button onClick={() => router.push('/Auth/signup')} className="font-semibold leading-6 text-orange-500 hover:text-orange-400">
+              Sign Up
+            </button>
+          </p>
+        </div>
+      </div>
+    )
   }
 
 

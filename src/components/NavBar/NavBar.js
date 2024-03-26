@@ -14,6 +14,7 @@ export function NavBar() {
     const router = useRouter();
     const pathName = usePathname().split('/');
     console.log(pathName);
+
     return (
         <nav>
              {

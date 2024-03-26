@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { PlayCircleIcon, UserCircleIcon } from '@heroicons/react/20/solid'
-import {getData} from '../rtdbFetch/FetchData'
+import { getData , getUserData } from '../rtdbFetch/FetchData'
 import {
   UserIcon,
   BellAlertIcon,
@@ -11,27 +11,60 @@ import {
 } from '@heroicons/react/24/outline'
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/app/firebase';
 
 export function UserFloatingMenu(props) {
+
+  const [uid, setUid] = useState("");
+  const [name , setName] = useState();
+  const [role , setRole] = useState();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUid(user.uid)
+    }
+  })
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const nameData = await getUserData("userDetails/name", `users/${uid}`);
+        const roleData = await getUserData("userDetails/role", `users/${uid}`);
+        setName(nameData);
+        setRole(roleData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
   
-  const session = useSession();
+    if (uid) {
+      fetchData();
+    }
+  }, [uid]);
+
+
+  console.log(`users/${uid}`)
   const UserProfile = [
-    { name: 'Welcome', description: props.name, href: '#', icon: UserIcon }
+    { name: name, description: role, href: '#', icon: UserIcon }
   ]
   const Settings = [
     { name: 'Settings', href: '#', icon: Cog6ToothIcon }
   ]
   const LogoutAction = [
     {
-      name: 'Logout', href: '#', icon: ArrowLeftStartOnRectangleIcon},
-  
+      name: 'Logout', href: '#', icon: ArrowLeftStartOnRectangleIcon
+    },
+
   ]
 
   return (
+
+
+
     <Popover>
 
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-        <span><UserCircleIcon className="h-8 w-8 flex-none text-black" aria-hidden="true" /></span>
+        <span><UserCircleIcon className="h-8 w-8 flex-none text-black" aria-hidden="false" /></span>
 
       </Popover.Button>
 
@@ -76,7 +109,7 @@ export function UserFloatingMenu(props) {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-0 divide-x divide-gray-900/5 bg-black hover:opacity-80">
+            <div className="grid grid-cols-0 divide-x divide-gray-900/5 bg-red-600 hover:opacity-80">
               {LogoutAction.map((item) => (
                 <a
                   key={item.name}
@@ -94,4 +127,9 @@ export function UserFloatingMenu(props) {
 
     </Popover>
   );
+
 }
+
+
+
+

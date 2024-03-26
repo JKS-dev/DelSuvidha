@@ -1,9 +1,9 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "@/app/firebase";
-import { encryptData } from '@/components/encryption'
+// import { encryptData } from '@/components/encryption'
 import CredentialsProvider from "next-auth/providers/credentials";
 import NextAuth from "next-auth"
-
+import CryptoJS from 'crypto-js';
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -39,19 +39,15 @@ export const authOptions = {
     encryption: true, // Enable encryption for JWT
     secret: process.env.NEXTAUTH_SECRET, // Secret used to encrypt JWT
   },
-  callbacks: {
-    async session({ session, token, user }) {
-      const refpath = "users/" + auth.currentUser.uid;
-      try {
-        const encryptedData = await encryptData(refpath);
-        console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
-        console.log('Encrypted data:', encryptedData);
-        session.user.refPath = encryptedData;
-      } catch (error) {
-        console.error('Encryption failed:', error);
-      }
-      return session;
-    },
-  }
+  // callbacks: {
+  //   async session({ session, token, user }) {
+  //     const refpath = "users/" + auth.currentUser.uid;
+  //     console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
+  //     console.log(refpath);
+  //     session.user.refPath = refpath;
+
+  //     return session;
+  //   },
+  // }
 }
 export default NextAuth(authOptions)
