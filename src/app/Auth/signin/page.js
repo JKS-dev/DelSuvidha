@@ -80,8 +80,8 @@ export default function Signin() {
 
           <button
 
-            onClick={() => {
-              signIn('credentials', { email, password, redirect: true, callbackUrl: `/Dashboard` })}}
+            onClick={() => signInWithEmailAndPassword(auth, email, password).then(() => {
+              signIn('credentials', { email, password, redirect: true, callbackUrl: `/Dashboard` })})}
             //   .then(() => {
 
             //     signInWithEmailAndPassword(auth, email, password).then(() => {

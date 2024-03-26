@@ -10,6 +10,7 @@ import {
   Cog6ToothIcon
 } from '@heroicons/react/24/outline'
 import { signOut } from 'next-auth/react';
+import { signOut as firebaseSignOut } from 'firebase/auth';
 import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -17,33 +18,31 @@ import { auth } from '@/app/firebase';
 
 export function UserFloatingMenu(props) {
 
-  const [uid, setUid] = useState("");
-  const [name , setName] = useState();
-  const [role , setRole] = useState();
-  onAuthStateChanged(auth, (user) => {
+  const [uid , setUid] =  useState("");
+  const [name , setName] = useState("");
+  const [role , setRole] = useState("");
+
+ onAuthStateChanged(auth, (user) => {
     if (user) {
       setUid(user.uid)
+      console.log(uid)
     }
+  });  
+
+  useEffect(()=>{
+    const fetchdata = async() =>{
+      const name = await getData("userDetails/name", `users/${uid}`);
+      const role = await getData("userDetails/role", `users/${uid}`);
+      
+      setName(name);
+      setRole(role)
+    }
+
+    if(uid !== ""){
+      fetchdata();
+    }
+    
   })
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const nameData = await getUserData("userDetails/name", `users/${uid}`);
-        const roleData = await getUserData("userDetails/role", `users/${uid}`);
-        setName(nameData);
-        setRole(roleData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-  
-    if (uid) {
-      fetchData();
-    }
-  }, [uid]);
-
-
-  console.log(`users/${uid}`)
   const UserProfile = [
     { name: name, description: role, href: '#', icon: UserIcon }
   ]
@@ -113,7 +112,11 @@ export function UserFloatingMenu(props) {
               {LogoutAction.map((item) => (
                 <a
                   key={item.name}
-                  onClick={() => signOut()}
+                  onClick={() => firebaseSignOut(auth).then(() => {
+                    signOut();
+                  }).catch((error) => {
+                    console.log(error)
+                  })}
                   className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-white"
                 >
                   <item.icon className="h-5 w-5 flex-none text-white" aria-hidden="true" />
