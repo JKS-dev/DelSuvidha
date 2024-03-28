@@ -9,8 +9,7 @@ import { decryptData } from '@/components/encryption';
 import { useRouter } from 'next/navigation';
 import { auth } from '@/app/firebase';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import CreateSchool from '../../components/CreateSchool';
-import Console from '../../components/Console';
+
 
  
 
@@ -60,7 +59,7 @@ if(session.status === "loading"){
 if(session.status === "authenticated"){
   return(
     <>
-        {!diseCode ? <CreateSchool uid = {uid}/>:<Console />}
+ 
     </>
   )
 }
