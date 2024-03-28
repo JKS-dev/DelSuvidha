@@ -3,26 +3,32 @@
         "SchoolName": "(SchoolName)",
         "SchoolId": "(SchoolId)",
         "DiseCode": "(DiseCode)",
-        "Address":"(Address)",
-        "Classes":["(Class1Boolean)","(Class2Boolean)"],
-        "Description":"(Description)",
-        "Cabinet":{
-            "<studentPost>":"<studentId>"
+        "Address": "(Address)",
+        "Description": "(Description)",
+        "Cabinet": {
+            "<studentPost>": "<studentId>"
         },
-        "Students":{
-            "<studentId>":{
-                "Medium":"(mediumOfStudent)",
+        "Students": {
+            "<studentId>": {
+                "Medium": "(mediumOfStudent)",
                 "RollNo.": "(rollNo)",
                 "StudentId": "(ScholarN)",
                 "StudentMobile": 1231231234,
+                "role": "(role)",
                 "Name": "(studentName)",
-                "ClassId": ["(class)", "(section)"],
+                "ClassId": [
+                    "(class)",
+                    "(section)"
+                ],
                 "Stream": "(stream)",
-                "Subjects": ["subject1", "subject2"],
+                "Subjects": [
+                    "subject1",
+                    "subject2"
+                ],
                 "Email": "(email)",
                 "DOB": "(DateOfBirth)",
                 "lastLogin": "(TimeStampOfLogin)",
-                "Data":{
+                "Data": {
                     "IsBPL": "(Boolean)",
                     "Aadhar": 123412341234,
                     "StudentSamagra": 123456789,
@@ -35,7 +41,7 @@
                 "Mother": "(MotherName)",
                 "MotherMobile": 1231231234,
                 "Address": "(Address)",
-                "Guardian":{
+                "Guardian": {
                     "Name": "(name)",
                     "Address": "(Address)",
                     "Mobile": "1231231234"
@@ -45,24 +51,45 @@
                     "PaidFee": "(paidFee)",
                     "Balance": "(balance)"
                 },
-                "Attendence":{
+                "Attendence": {
                     "<TimeStamp>": "(Boolean)"
                 },
                 "ExamScore": {
-                    "Quaterly":["(subject1Score)","(subject2Score)"],
-                    "HalfYearly":["(subject1Score)","(subject2Score)"],
-                    "Final":["(subject1Score)","(subject2Score)"]
+                    "Quaterly": [
+                        "(subject1Score)",
+                        "(subject2Score)"
+                    ],
+                    "HalfYearly": [
+                        "(subject1Score)",
+                        "(subject2Score)"
+                    ],
+                    "Final": [
+                        "(subject1Score)",
+                        "(subject2Score)"
+                    ]
                 }
             }
         },
-        "Teachers":{
-            "<teacherId>":{
+        "Teachers": {
+            "<teacherId>": {
                 "Post": "(postOfTeacher)",
                 "Name": "(studentName)",
-                "ClassId": ["(class)", "(section)"],
-                "Subjects": ["subject1", "subject2"],
+                "ClassId": [
+                    "(class)",
+                    "(section)"
+                ],
+                "Subjects": [
+                    "subject1",
+                    "subject2"
+                ],
                 "Email": "(email)",
-                "Address":"(Address)"
+                "Address": "(Address)"
+            }
+        },
+        "Classes": {
+            "classId": {
+                "ClassTeacher": "(SchoolName)",
+                "Students": "()"
             }
         }
     }

@@ -2,18 +2,9 @@ import { rtdb } from '@/app/firebase'; // Assuming rtdb is the Realtime Database
 import { ref, onValue, child } from 'firebase/database'; // Import specific functions from firebase/database
 import { decryptData } from '@/components/encryption';
 
-
-
-
-
-
-
 export function getData(path, sessionData) {
-  
-  const decryptedPathPromise = decryptData(sessionData?.user?.refPath); // Synchronous decryption function
 
-  return decryptedPathPromise.then(decryptedPath => {
-    const dbRef = ref(rtdb, decryptedPath);
+    const dbRef = ref(rtdb, sessionData);
 
     return new Promise((resolve, reject) => {
       onValue(child(dbRef, path), snapshot => {
@@ -25,11 +16,8 @@ export function getData(path, sessionData) {
         reject(errorObject); // Reject with error object
       });
     });
-  }).catch(error => {
-    console.error('Decryption error:', error);
-    throw error; // Throw error
-  });
-}
+  }
+
 
 //  console.log(sessionData?.user?.refPath )
 //     const decryptedPath = await decryptData(sessionData?.user?.refPath);
