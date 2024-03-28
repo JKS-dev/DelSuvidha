@@ -7,6 +7,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { signIn, useSession, signOut } from 'next-auth/react';
 import { child, push, ref, set } from 'firebase/database';
 import { userInfo } from 'os';
+import { signOut as firebaseSignOut } from 'firebase/auth';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -36,7 +37,7 @@ export default function Signup() {
           setEmail("");
           setPassword("");
           setPasswordAgain("");
-          signOut({ redirect: true, callbackUrl: '/Auth/signin' });
+          firebaseSignOut(auth).then(()=> signOut({ redirect: true, callbackUrl: '/Auth/signin' }))
           toast.success('User Created Successfully. Please Sign In')
           return true
         } catch (error) {

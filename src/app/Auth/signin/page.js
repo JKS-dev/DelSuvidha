@@ -80,8 +80,29 @@ export default function Signin() {
 
           <button
 
-            onClick={() => signIn('credentials', { email, password, redirect: true, callbackUrl: '/Dashboard' }).then(() => {
-              signInWithEmailAndPassword(auth, email, password)})}
+            onClick={async() => {
+              try {
+                await signInWithEmailAndPassword(auth, email , password).then(()=>{
+                  signIn('credentials', { email, password, redirect: true, callbackUrl: '/Dashboard' })
+                })
+                
+              } catch (error) {
+                
+                const errorCode = error.code;
+                toast.error(error.code)
+                console.log(error);
+                
+                // throw new Error(errorCode);
+                // return(errorCode);
+              }
+            }
+          }
+              
+              
+              
+              
+              // signIn('credentials', { email, password, redirect: true, callbackUrl: '/Dashboard' }).then(() => {
+              // signInWithEmailAndPassword(auth, email, password)})
             //   .then(() => {
 
             //     signInWithEmailAndPassword(auth, email, password).then(() => {
