@@ -122,7 +122,7 @@ export default function Signup() {
             Password Again
           </label>
         </div>
-        <div>
+        <div className="relative w-full  px-2 md:w-1/2 sm:w-3/4 max-w-lg md:max-w-lg">
               <button
                 disabled={(!name || !email || !password || !passwordAgain) || (password !== passwordAgain)}
                 onClick={() => signup()}
@@ -141,110 +141,3 @@ export default function Signup() {
      
   )
 }
-
-//  <main className='h-screen w-screen flex items-center justify-center bg-orange-400'>
-//       <div className="bg-white bg-opacity-95 flex sm:max-h-max sm:max-w-lg sm:rounded-xl sm:shadow-2xl shadow-orange-300 flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
-//         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-
-//           <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-black">
-//             Sign up
-//           </h2>
-//         </div>
-
-//         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-//           <div className="space-y-6">
-//             <div>
-//               <label htmlFor="name" className="block text-sm font-medium leading-6 text-black">
-//                 Name
-//               </label>
-//               <div className="mt-2">
-//                 <input
-//                   id="name"
-//                   name="name"
-//                   type="text"
-//                   autoComplete="name"
-//                   placeholder='User Name'
-//                   onChange={(e) => setName(e.target.value)}
-//                   required
-//                   className="px-2 block w-full rounded-md border-0  py-1.5 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
-//                 />
-//               </div>
-//             </div>
-
-
-//             <div>
-//               <label htmlFor="email" className="block text-sm font-medium leading-6 text-black">
-//                 Email address
-//               </label>
-//               <div className="mt-2">
-//                 <input
-//                   id="email"
-//                   name="email"
-//                   type="email"
-//                   autoComplete="email"
-//                   placeholder='UserName@example.com'
-//                   onChange={(e) => setEmail(e.target.value)}
-//                   required
-//                   className="px-2 block w-full rounded-md border-0  py-1.5 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
-//                 />
-//               </div>
-//             </div>
-
-//             <div>
-//               <div className="flex items-center justify-between">
-//                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-black">
-//                   Password
-//                 </label>
-//               </div>
-//               <div className="mt-2">
-//                 <input
-//                   id="password"
-//                   name="password"
-//                   type="password"
-//                   placeholder='Password'
-//                   autoComplete="current-password"
-//                   onChange={(e) => setPassword(e.target.value)}
-//                   required
-//                   className="px-2 block w-full rounded-md border-0  py-1.5 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
-//                 />
-//               </div>
-//             </div>
-//             <div>
-//               <div className="flex items-center justify-between">
-//                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-black">
-//                   Password Again
-//                 </label>
-//               </div>
-//               <div className="mt-2">
-//                 <input
-//                   id="passwordAgain"
-//                   name="passwordAgain"
-//                   type="password"
-//                   placeholder='Password Again'
-//                   autoComplete="current-password"
-//                   onChange={(e) => setPasswordAgain(e.target.value)}
-//                   required
-//                   className="px-2 block w-full rounded-md border-0  py-1.5 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-6"
-//                 />
-//               </div>
-//             </div>
-
-//             <div>
-//               <button
-//                 disabled={(!name || !email || !password || !passwordAgain) || (password !== passwordAgain)}
-//                 onClick={() => signup()}
-//                 className="disabled:opacity-40 flex w-full justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-//               >
-//                 Sign Up
-//               </button>
-//               <p className="mt-4 text-center text-sm text-gray-400">
-//             Already Have Account?{' '}
-//             <button onClick={() => router.push('/Auth/signin')} className="font-semibold leading-6 text-orange-500 hover:text-orange-400">
-//               Sign In
-//             </button>
-//           </p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </main>
