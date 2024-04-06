@@ -34,7 +34,7 @@ export default function Signin() {
     )
   } if (status === "unauthenticated") {
     return (
-      <div className="flex flex-col gap-2 items-center justify-center h-screen w-screen" >
+      <div className="flex flex-col gap-2 items-center justify-center h-screen w-screen bg-white" >
         <h1 className='text-center text-black font-extrabold text-3xl mb-3' >Sign In</h1>
 
         <div className="relative w-full  px-2 md:w-1/2 sm:w-3/4 max-w-lg md:max-w-lg">
@@ -80,8 +80,29 @@ export default function Signin() {
 
           <button
 
-            onClick={() => signIn('credentials', { email, password, redirect: true, callbackUrl: '/Dashboard' }).then(() => {
-              signInWithEmailAndPassword(auth, email, password)})}
+            onClick={async() => {
+              try {
+                await signInWithEmailAndPassword(auth, email , password).then(()=>{
+                  signIn('credentials', { email, password, redirect: true, callbackUrl: '/Dashboard' })
+                })
+                
+              } catch (error) {
+                
+                const errorCode = error.code;
+                toast.error(error.code)
+                console.log(error);
+                
+                // throw new Error(errorCode);
+                // return(errorCode);
+              }
+            }
+          }
+              
+              
+              
+              
+              // signIn('credentials', { email, password, redirect: true, callbackUrl: '/Dashboard' }).then(() => {
+              // signInWithEmailAndPassword(auth, email, password)})
             //   .then(() => {
 
             //     signInWithEmailAndPassword(auth, email, password).then(() => {

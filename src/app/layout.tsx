@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import { NavBar } from '@/components/NavBar/NavBar';
+import { Footer, NavBar } from '@/components/NavBar/NavBar';
 import SessionProvider from './SessionProvider';
 import "@/styles/globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -20,10 +20,12 @@ export default async function RootLayout({
       <SpeedInsights/>
       <Analytics/>
         <NavBar />
+       
         <ToastContainer />
         {children}
         </Suspense>
       </SessionProvider>
+       <Footer />
       </body>
     </html>
   )
