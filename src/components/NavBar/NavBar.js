@@ -3,46 +3,203 @@ import { usePathname } from 'next/navigation';
 import Image from "next/image";
 import styles from '@/styles/navbar.module.css'
 import Logo from '../../../public/Logo.svg'
+import whiteLogo from '../../../public/LogoWhite.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { Abril_Fatface } from "next/font/google";
-import {UserFloatingMenu} from '@/components/FloatingMenu/UserFloatingMenu'
-import { SimpleBtn } from '../Btn/Btn';
-const abrilFatface = Abril_Fatface({weight: '400', subsets: ["latin"] });
+import { UserFloatingMenu } from '@/components/FloatingMenu/UserFloatingMenu'
+import { SimpleBtn, Btn, GrayBtn } from '../Btn/Btn';
+import { useState } from "react"
+
+const abrilFatface = Abril_Fatface({ weight: '400', subsets: ["latin"] });
 
 export function NavBar() {
-    const router = useRouter();
-    const pathName = usePathname().split('/');
-    console.log(pathName);
+  const [clicked, setClicked] = useState(false);
+  const router = useRouter();
+  const pathName = usePathname().split('/');
+  console.log(pathName);
 
-    return (
-        <nav>
-             {
-                pathName[1] !== "Auth"?
-                <div className={styles.NavBar}>
-                <div style={abrilFatface.style} onClick={()=>(router.push("/"))} className={styles.Logo}>
-                <Link href='/' className="flex h-full items-center font-Logo">
-                    <Image
-                        src={Logo}
-                        alt="Logo"
-                        width="144"
-                        height="48"
-                        className='cursor-pointer m-2'
-                        priority
-                    />
+  return (
+    <nav >
+      {
+        pathName[1] !== "Auth" ?
+          <div className={styles.NavBar}>
+            <div style={abrilFatface.style} onClick={() => (router.push("/"))} className={styles.Logo}>
+              <Link href='/' className="flex h-full items-center font-Logo">
+                <Image
+                  src={Logo}
+                  alt="Logo"
+                  width="144"
+                  height="48"
+                  className='cursor-pointer m-2'
+                  priority
+                />
 
-                </Link>
-                </div>
-                <div className='flex gap-4 items-center'>
-                        {
-                            pathName[1] !== "Dashboard"?
-                        <SimpleBtn onClick={()=>(router.push("/Auth/signin"))} text="Login"  />
-                         :<UserFloatingMenu />
-                        }
-                </div>
+              </Link>
             </div>
-            :null
-        }
-        </nav>
-    );
+            <div className='flex gap-4 items-center'>
+              {
+                pathName[1] !== "Dashboard" ?
+                  <div className='flex items-center justify-between'>
+                    < >
+                      <ul className=' gap-4 items-center md:flex hidden'>
+                        <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Home</Link></li>
+                        <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">About</Link></li>
+                        <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Features</Link></li>
+                        <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Pricing</Link></li>
+
+                        <li><SimpleBtn onClick={() => (router.push("/Auth/signin"))} text="Login" /></li>
+                    </ul>
+                    </>
+                    <button onClick={() => setClicked(!clicked)} data-collapse-toggle="navbar-default" type="button" className="outline-none inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-blue-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                      <span className="sr-only">Open main menu</span>
+                      {!clicked ? <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                      </svg> : <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 17 14">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                      </svg>}
+                    </button>
+                  </div>
+                  : <UserFloatingMenu />
+              }
+
+            </div>
+          </div>
+          : null
+      }
+      <MobileMenu clicked={clicked}/>
+    </nav>
+  );
+}
+
+function MobileMenu(props){
+  const router = useRouter();
+  return(
+    
+    <div
+        className={`z-40 fixed inset-x-0 top-0 h-full rounded-xl w-full md:hidden backdrop-blur-sm bg-Orange/10 transition-transform duration-500 ease-in-out transform ${props.clicked ? 'translate-y-0' : '-translate-y-full'}`}
+        tabIndex={-1}
+      >
+        <ul className="font-medium flex flex-col p-4 md:p-0 mt-16  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-16 gap-2">
+          <li className=" bg-white hover:text-white rounded-md ">
+            <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-orang md:p-0">Home</Link>
+          </li>
+          <li className=" bg-white hover:text-white rounded-md">
+            <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-orang md:p-0">About</Link>
+          </li>
+          <li className=" bg-white hover:text-white rounded-md">
+            <Link href="#" className="block py-2 px-3 text-gray-900 rounded  md:p-0">Services</Link>
+          </li>
+          <li className=" bg-white hover:text-white rounded-md">
+            <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-orang md:p-0">Pricing</Link>
+          </li>
+          <li className=" bg-white hover:text-white rounded-md">
+            <Link href="#" className="block py-2 px-3 text-gray-900 rounded  md:p-0">Contact</Link>
+          </li>
+          <li className="rounded-md flex justify-center ">
+            <SimpleBtn w="128"onClick={() => (router.push("/Auth/signin"))} text="Login" />
+            </li>
+
+        </ul>
+
+      </div>
+  )
+}
+
+
+export function Footer() {
+  const router = useRouter();
+  const pathName = usePathname().split('/');
+  return (
+    pathName[1] !== "Auth" ?
+          <footer class="px-4 divide-y bg-black">
+      <div class="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+          <div class="lg:w-1/3">
+             <Link rel="noopener noreferrer" href="#" class="flex justify-center space-x-3 lg:justify-start">
+                  <div class="flex items-center justify-center w-36 h-12 rounded-full bg-blue-600">
+                      <Image
+                  src={whiteLogo}
+                  alt="Home"
+                  width="144"
+                  height="48"
+                  className='cursor-pointer m-2'
+                  priority
+                />
+
+                  </div>
+                
+              </Link >
+          </div>
+          <div class="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4 text-white">
+              <div class="space-y-3">
+                  <h3 class="tracking-wide uppercase font-bold">Product</h3>
+                  <ul class="space-y-1">
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Features</Link >
+                      </li>
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Integrations</Link >
+                      </li>
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Pricing</Link >
+                      </li>
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">FAQ</Link >
+                      </li>
+                  </ul>
+              </div>
+              <div class="space-y-3">
+                  <h3 class="tracking-wide uppercase font-bold">Company</h3>
+                  <ul class="space-y-1">
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Privacy</Link >
+                      </li>
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Terms of Service</Link >
+                      </li>
+                  </ul>
+              </div>
+              {/* <div class="space-y-3">
+                  <h3 class="uppercase font-bold">Developers</h3>
+                  <ul class="space-y-1">
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Public API</Link >
+                      </li>
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Documentation</Link >
+                      </li>
+                      <li>
+                         <Link rel="noopener noreferrer" href="#">Guides</Link >
+                      </li>
+                  </ul>
+              </div> */}
+              <div class="space-y-3">
+                  <div class="uppercase font-bold">Social media</div>
+                  <div class="flex justify-start space-x-3">
+                     <Link rel="noopener noreferrer" href="#" title="Facebook" class="flex items-center p-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5 fill-current">
+                              <path d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"></path>
+                          </svg>
+                      </Link >
+                     <Link rel="noopener noreferrer" href="#" title="Twitter" class="flex items-center p-1">
+                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current">
+                              <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"></path>
+                          </svg>
+                      </Link >
+                     <Link rel="noopener noreferrer" href="#" title="Instagram" class="flex items-center p-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5 fill-current">
+                              <path d="M16 0c-4.349 0-4.891 0.021-6.593 0.093-1.709 0.084-2.865 0.349-3.885 0.745-1.052 0.412-1.948 0.959-2.833 1.849-0.891 0.885-1.443 1.781-1.849 2.833-0.396 1.020-0.661 2.176-0.745 3.885-0.077 1.703-0.093 2.244-0.093 6.593s0.021 4.891 0.093 6.593c0.084 1.704 0.349 2.865 0.745 3.885 0.412 1.052 0.959 1.948 1.849 2.833 0.885 0.891 1.781 1.443 2.833 1.849 1.020 0.391 2.181 0.661 3.885 0.745 1.703 0.077 2.244 0.093 6.593 0.093s4.891-0.021 6.593-0.093c1.704-0.084 2.865-0.355 3.885-0.745 1.052-0.412 1.948-0.959 2.833-1.849 0.891-0.885 1.443-1.776 1.849-2.833 0.391-1.020 0.661-2.181 0.745-3.885 0.077-1.703 0.093-2.244 0.093-6.593s-0.021-4.891-0.093-6.593c-0.084-1.704-0.355-2.871-0.745-3.885-0.412-1.052-0.959-1.948-1.849-2.833-0.885-0.891-1.776-1.443-2.833-1.849-1.020-0.396-2.181-0.661-3.885-0.745-1.703-0.077-2.244-0.093-6.593-0.093zM16 2.88c4.271 0 4.781 0.021 6.469 0.093 1.557 0.073 2.405 0.333 2.968 0.553 0.751 0.291 1.276 0.635 1.844 1.197 0.557 0.557 0.901 1.088 1.192 1.839 0.22 0.563 0.48 1.411 0.553 2.968 0.072 1.688 0.093 2.199 0.093 6.469s-0.021 4.781-0.099 6.469c-0.084 1.557-0.344 2.405-0.563 2.968-0.303 0.751-0.641 1.276-1.199 1.844-0.563 0.557-1.099 0.901-1.844 1.192-0.556 0.22-1.416 0.48-2.979 0.553-1.697 0.072-2.197 0.093-6.479 0.093s-4.781-0.021-6.48-0.099c-1.557-0.084-2.416-0.344-2.979-0.563-0.76-0.303-1.281-0.641-1.839-1.199-0.563-0.563-0.921-1.099-1.197-1.844-0.224-0.556-0.48-1.416-0.563-2.979-0.057-1.677-0.084-2.197-0.084-6.459 0-4.26 0.027-4.781 0.084-6.479 0.083-1.563 0.339-2.421 0.563-2.979 0.276-0.761 0.635-1.281 1.197-1.844 0.557-0.557 1.079-0.917 1.839-1.199 0.563-0.219 1.401-0.479 2.964-0.557 1.697-0.061 2.197-0.083 6.473-0.083zM16 7.787c-4.541 0-8.213 3.677-8.213 8.213 0 4.541 3.677 8.213 8.213 8.213 4.541 0 8.213-3.677 8.213-8.213 0-4.541-3.677-8.213-8.213-8.213zM16 21.333c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333s-2.385 5.333-5.333 5.333zM26.464 7.459c0 1.063-0.865 1.921-1.923 1.921-1.063 0-1.921-0.859-1.921-1.921 0-1.057 0.864-1.917 1.921-1.917s1.923 0.86 1.923 1.917z"></path>
+                          </svg>
+                      </Link >
+                  </div>
+              </div>
+          </div>
+      </div>
+     
+  </footer>
+          : null 
+
+      
+  
+  );
 }

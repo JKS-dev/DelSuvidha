@@ -33,7 +33,7 @@ export default function CreateSchool(props) {
 
               const updates = {};
               updates[`/users/${props.uid}/schoolDetails/`] = schoolDetails;
-              updates[`/${diseCode}/`] = DiseCode;
+              updates[`schools/${diseCode}/`] = DiseCode;
 
               update(newDataRef, updates).then(()=>{
                 setSchoolName("");
