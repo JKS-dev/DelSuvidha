@@ -97,7 +97,7 @@ function MobileMenu(props){
             <Link href="#" className="block py-2 px-3 text-gray-900 rounded  md:p-0">Contact</Link>
           </li>
           <li className="rounded-md flex justify-center ">
-            <SimpleBtn w="128"onClick={() => (router.push("/Auth/signin"))} text="Login" />
+            <SimpleBtn w="128"onClick={() => {props.clicked.setClicked(false); router.push("/Auth/signin")}} text="Login" />
             </li>
 
         </ul>

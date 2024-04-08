@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Carousel } from "flowbite-react";
 import { CustomFlowbiteTheme } from "flowbite-react";
-
+import Button from '@mui/material/Button';
 const customTheme = {
 
     "root": {
@@ -43,11 +43,12 @@ const customTheme = {
 export default function Home() {
     const router = useRouter();
     return (
-        <main className="pt-20 px-4">
+        <main className="pt-20 ">
             {/* <h1>Dashboard</h1> */}
             <DelCarousel />
             <FeatureSection />
             <About />
+            <CTA />
         </main>
     );
 }
@@ -57,7 +58,7 @@ export default function Home() {
 
 function DelCarousel() {
     return (
-        <div className="relative h-60 sm:h-80 xl:h-100 z-30   ">
+        <div className="relative h-60 sm:h-80 xl:h-100 z-30 mx-4  ">
             <Carousel pauseOnHover theme={customTheme}>
                 <Image src="/001.png" layout="fill" alt="" />
                 <Image src="/002.png" layout="fill" alt="" />
@@ -73,7 +74,7 @@ function About() {
     return (
 
         <section
-            class="overflow-hidden px-2 pt-16 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white rounded-lg"
+            class=" overflow-hidden px-2 pt-16 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white rounded-lg"
         >
             <div class="container mx-auto">
                 <div class="flex flex-wrap items-center justify-between -mx-4">
@@ -722,8 +723,8 @@ function FeatureSection() {
     return (
 
 
-        <div class=" py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-20">
-            <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 pt-3">
+        <div class="py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-20">
+            <div class="max-w-xl mb-10 mx-2 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 pt-3">
 
                 <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
                     <span class="relative inline-block">
@@ -803,6 +804,54 @@ function FeatureSection() {
 }
 
 
+
+function CTA() {
+    return (
+
+<div class="mx-auto max-w-7xl sm:px-6 lg:px-8 mt-20 sm:mb-20">
+
+<div
+    class="relative isolate overflow-hidden bg-white px-6 py-20 text-center sm:rounded-3xl sm:border sm:border-gray-100 sm:px-16 sm:shadow-sm">
+
+    <h2 class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+    Join the Revolution
+    </h2>
+
+    <h3 class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-500">
+    Unlock the Power of Delsuvidha,Transform Your School Management!
+    </h3>
+
+    <div class="mt-8 flex items-center justify-center gap-x-6">
+        <a class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-Orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            href="#">
+            Get Started
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </a>
+    </div>
+
+   
+    <svg viewBox="0 0 1024 1024"
+        class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+        aria-hidden="true">
+        <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="1">
+        </circle>
+        <defs>
+            <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
+                <stop stop-color="#FC6736"></stop>
+                <stop offset="1" stop-color="#FFB0B0"></stop>
+            </radialGradient>
+        </defs>
+    </svg>
+
+</div>
+
+</div>
+    );
+}
 
 
 
