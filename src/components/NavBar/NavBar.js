@@ -47,8 +47,8 @@ export function NavBar() {
                         <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">About</Link></li>
                         <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Features</Link></li>
                         <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Pricing</Link></li>
-
-                        <li><SimpleBtn onClick={() => (router.push("/Auth/signin"))} text="Login" /></li>
+                        <li><Btn onClick={() => (router.push("/Auth/signin"))} text="Login" /></li>
+                        <li><SimpleBtn onClick={() => (router.push("/Auth/GetStarted"))} text="Get Started" /></li>
                     </ul>
                     </>
                     <button onClick={() => setClicked(!clicked)} data-collapse-toggle="navbar-default" type="button" className="outline-none inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-blue-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -97,7 +97,7 @@ function MobileMenu(props){
             <Link href="#" className="block py-2 px-3 text-gray-900 rounded  md:p-0">Contact</Link>
           </li>
           <li className="rounded-md flex justify-center ">
-            <SimpleBtn w="128"onClick={() => (router.push("/Auth/signin"))} text="Login" />
+            <SimpleBtn w="128"onClick={() => {props.clicked.setClicked(false); router.push("/Auth/signin")}} text="Login" />
             </li>
 
         </ul>

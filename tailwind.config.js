@@ -13,7 +13,7 @@ module.exports = {
       Orange: '#FC6736',
       blue: '#0C2D57',
       lightOrange: '#FFB0B0',
-      gray: '#EFECEC',
+      Gray: '#EFECEC',
       current: '#fff',
     },
     height:{

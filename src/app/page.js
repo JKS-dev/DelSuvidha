@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Carousel } from "flowbite-react";
 import { CustomFlowbiteTheme } from "flowbite-react";
-
+import Button from '@mui/material/Button';
 const customTheme = {
 
     "root": {
@@ -43,11 +43,13 @@ const customTheme = {
 export default function Home() {
     const router = useRouter();
     return (
-        <main className="pt-20 px-4">
+        <main className="pt-20 ">
             {/* <h1>Dashboard</h1> */}
             <DelCarousel />
             <FeatureSection />
             <About />
+            <Accordion />
+            <CTA />
         </main>
     );
 }
@@ -57,7 +59,7 @@ export default function Home() {
 
 function DelCarousel() {
     return (
-        <div className="relative h-60 sm:h-80 xl:h-100 z-30   ">
+        <div className="relative h-60 sm:h-80 xl:h-100 z-30 mx-4  ">
             <Carousel pauseOnHover theme={customTheme}>
                 <Image src="/001.png" layout="fill" alt="" />
                 <Image src="/002.png" layout="fill" alt="" />
@@ -73,7 +75,7 @@ function About() {
     return (
 
         <section
-            class="overflow-hidden px-2 pt-16 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white rounded-lg"
+            class=" overflow-hidden px-2 pt-16 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white rounded-lg"
         >
             <div class="container mx-auto">
                 <div class="flex flex-wrap items-center justify-between -mx-4">
@@ -684,25 +686,25 @@ function About() {
                             <h2
                                 class="mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] text-blue"
                             >
-                               Revolutionizing School Management
+                                Revolutionizing School Management
                             </h2>
-                            
+
                             <p class="mb-8 text-base text-body-color dark:text-dark-6">
-                            Delsuvidha is an all-in-one school management system designed for schools. It offers comprehensive features catering to administrators, teachers, and students. 
-                            </p>
-                           <p class="mb-8 text-base text-body-color dark:text-dark-6">
-                           For administrators, it includes fee, student, and teacher management, along with statistical insights and record maintenance.
+                                Delsuvidha is an all-in-one school management system designed for schools. It offers comprehensive features catering to administrators, teachers, and students.
                             </p>
                             <p class="mb-8 text-base text-body-color dark:text-dark-6">
-                            Teachers enjoy easy student data management, doubt resolution support, and access to a variety of teaching materials, including notes and online book collections.
+                                For administrators, it includes fee, student, and teacher management, along with statistical insights and record maintenance.
                             </p>
-                             <p class="mb-8 text-base text-body-color dark:text-dark-6">
-                             Students benefit from profile management, secure data transfer to teachers, encrypted chat for doubt resolution, and online fee payment.
+                            <p class="mb-8 text-base text-body-color dark:text-dark-6">
+                                Teachers enjoy easy student data management, doubt resolution support, and access to a variety of teaching materials, including notes and online book collections.
+                            </p>
+                            <p class="mb-8 text-base text-body-color dark:text-dark-6">
+                                Students benefit from profile management, secure data transfer to teachers, encrypted chat for doubt resolution, and online fee payment.
                             </p><p class="mb-8 text-base text-body-color dark:text-dark-6">
-                            Delsuvidha relies on Google Cloud Firestore for efficient database management. With its secure storage and real-time updates, we ensure seamless user experiences for administrators, teachers, and students. Trust in our use of cutting-edge technology for reliable and scalable solutions.
+                                Delsuvidha relies on Google Cloud Firestore for efficient database management. With its secure storage and real-time updates, we ensure seamless user experiences for administrators, teachers, and students. Trust in our use of cutting-edge technology for reliable and scalable solutions.
                             </p>
                             <p class="mb-8 text-base text-body-color dark:text-dark-6">
-                            Moreover, Delsuvidha facilitates the digitization of school libraries through its Bookalay digital library software, creating a vast online repository of educational resources.
+                                Moreover, Delsuvidha facilitates the digitization of school libraries through its Bookalay digital library software, creating a vast online repository of educational resources.
                             </p><Link
                                 href="javascript:void(0)"
                                 class="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-primary hover:bg-opacity-90"
@@ -722,8 +724,8 @@ function FeatureSection() {
     return (
 
 
-        <div class=" py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-20">
-            <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 pt-3">
+        <div class="py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-20">
+            <div class="max-w-xl mb-10 mx-2 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 pt-3">
 
                 <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
                     <span class="relative inline-block">
@@ -798,11 +800,191 @@ function FeatureSection() {
                     <Link href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-blue hover:Orange">Learn more</Link >
                 </div>
             </div>
+            <div class="max-w-xl mb-10 mt-4 flex justify-center mx-auto sm:text-center lg:max-w-2xl md:mb-12 pt-3">
+                <SimpleBtn text="Explore" />
+            </div>
         </div>
     );
 }
 
 
 
+function CTA() {
+    return (
 
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 mt-20 sm:mb-20">
+
+            <div
+                class="relative isolate overflow-hidden bg-white px-6 py-20 text-center sm:rounded-3xl sm:border sm:border-gray-100 sm:px-16 sm:shadow-sm">
+
+                <h2 class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    Join the Revolution
+                </h2>
+
+                <h3 class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-500">
+                    Unlock the Power of Delsuvidha,Transform Your School Management!
+                </h3>
+
+                <div class="mt-8 flex items-center justify-center gap-x-6">
+                    <a class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-Orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                        href="#">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+
+
+                <svg viewBox="0 0 1024 1024"
+                    class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+                    aria-hidden="true">
+                    <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="1">
+                    </circle>
+                    <defs>
+                        <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
+                            <stop stop-color="#FC6736"></stop>
+                            <stop offset="1" stop-color="#FFB0B0"></stop>
+                        </radialGradient>
+                    </defs>
+                </svg>
+
+            </div>
+
+        </div>
+    );
+}
+
+const Accordion = () => {
+    return (
+        <section className="relative z-20 overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+            <div className="container mx-auto">
+                <div className="-mx-4 flex flex-wrap">
+                    <div className="w-full px-4">
+                        <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
+                            <span className="mb-2 block text-lg font-semibold text-Orange">
+                                FAQ
+                            </span>
+                            <h2 className="mb-4 text-3xl font-bold text-dark sm:text-[40px]/[48px] text-blue">
+                                Any Questions? Look Here
+                            </h2>
+                            <p className="text-base text-body-color">
+                                Explore our comprehensive FAQ section to find answers to commonly asked questions and gain clarity on any inquiries you may have.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="-mx-4 flex flex-wrap">
+                    <div className="w-full px-4 lg:w-1/2">
+                        
+                        <AccordionItem
+                            header="What is Delsuvidha?"
+                            text="Delsuvidha is a comprehensive school management system designed for government schools, offering various features for students, teachers, and administration."
+                        /><AccordionItem
+                            header="Can schools access a wide range of online books through Delsuvidha?"
+                            text="Yes, Delsuvidha offers a variety of online books for schools, benefiting both teachers and students."
+                        /> 
+                       <AccordionItem
+                            header="How does Delsuvidha benefit school administration?"
+                            text="Yes, students can easily manage their profiles, ensuring secure data transfer to teachers."
+                        /> <AccordionItem
+                            header="How does Delsuvidha facilitate communication between students and teachers?"
+                            text="Delsuvidha features an encrypted chat system allowing students to seek doubt resolution from teachers at any time."
+                        /> <AccordionItem
+                            header="Is online fee payment secure on Delsuvidha?"
+                            text="Yes, Delsuvidha ensures secure online fee payment for students."
+                        /><AccordionItem
+                            header="What features does Delsuvidha offer for teachers?"
+                            text="Teachers benefit from easy student data management, doubt resolution, access to study materials, and the ability to share notes with students."
+                        />  <AccordionItem
+                            header="How do students stay updated on school-related information using Delsuvidha?"
+                            text="Delsuvidha sends notifications, daily schedules, and exam schedules to students, keeping them informed."
+                        /> 
+                    </div>
+                    <div className="w-full px-4 lg:w-1/2">
+                    <AccordionItem
+                            header="What are the main features of Delsuvidha?"
+                            text="Delsuvidha offers fee management, student management, teacher management, school record maintenance, profile management for students, encrypted chat for doubt resolution, secure online fee payment, notifications, daily schedules, exam schedules, study material access, and digital library services."
+                        /><AccordionItem
+                            header="How does Delsuvidha support the digitalization of school libraries?"
+                            text="Delsuvidha provides Bookalay, a digital library software, enabling schools to digitize their libraries and publish books online."
+                            />   <AccordionItem
+                            header="Is Delsuvidha user-friendly?"
+                            text="Yes, Delsuvidha is designed to be user-friendly, making it easy for schools to adapt and use effectively."
+                        /> <AccordionItem
+                            header="Can schools customize Delsuvidha according to their specific requirements?"
+                            text="Yes, Delsuvidha offers customization options to meet the unique needs of each school."
+                        /> <AccordionItem
+                            header="Is training provided for using Delsuvidha?"
+                            text="Yes, Delsuvidha provides training sessions to help users familiarize themselves with the platform."
+                        /> <AccordionItem
+                            header="Can existing student data be imported into Delsuvidha?"
+                            text="Yes, Delsuvidha allows for the import of existing student data to facilitate the transition to the new system."
+                        /> <AccordionItem
+                            header="Are there any additional costs associated with using Delsuvidha?"
+                            text="Delsuvidha offers transparent pricing with no hidden costs, ensuring schools can budget effectively."
+                        /> 
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+    );
+};
+
+
+
+const AccordionItem = ({ header, text }) => {
+    const [active, setActive] = useState(false);
+
+    const handleToggle = () => {
+        event.preventDefault();
+        setActive(!active);
+    };
+    return (
+        <div className="mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8">
+            <button
+                className={`faq-btn flex w-full text-left`}
+                onClick={() => handleToggle()}
+            >
+                <div className="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary/5 text-primary dark:bg-white/5">
+                    <svg
+                        className={`fill-primary stroke-primary duration-200 ease-in-out ${active ? "rotate-180" : ""
+                            }`}
+                        width="17"
+                        height="10"
+                        viewBox="0 0 17 10"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
+                            fill=""
+                            stroke=""
+                        />
+                    </svg>
+                </div>
+
+                <div className="w-full">
+                    <h4 className="mt-1 text-lg font-semibold text-dark dark:text-white">
+                        {header}
+                    </h4>
+                </div>
+            </button>
+
+            <div
+                className={`pl-[62px] duration-200 ease-in-out ${active ? "block" : "hidden"
+                    }`}
+            >
+                <p className="py-3 text-base leading-relaxed text-body-color dark:text-dark-6">
+                    {text}
+                </p>
+            </div>
+        </div>
+    );
+};
 
