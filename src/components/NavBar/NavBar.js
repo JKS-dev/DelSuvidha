@@ -46,7 +46,6 @@ export function NavBar() {
                         <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Home</Link></li>
                         <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">About</Link></li>
                         <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Features</Link></li>
-                        <li className="py-1 px-3 rounded hover:bg-gray hover:text-blue disabled:opacity-30 disabled:hover:bg-black disabled:text-white disabled:hover:cursor-not-allowed" ><Link href="/#">Pricing</Link></li>
                         <li><Btn onClick={() => (router.push("/Auth/signin"))} text="Login" /></li>
                         <li><SimpleBtn onClick={() => (router.push("/Auth/GetStarted"))} text="Get Started" /></li>
                     </ul>

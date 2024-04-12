@@ -61,10 +61,10 @@ function DelCarousel() {
     return (
         <div className="relative h-60 sm:h-80 xl:h-100 z-30 mx-4  ">
             <Carousel pauseOnHover theme={customTheme}>
-                <Image src="/001.png" layout="fill" alt="" />
-                <Image src="/002.png" layout="fill" alt="" />
-                <Image src="/003.png" layout="fill" alt="" />
-                <Image src="/004.png" layout="fill" alt="" />
+                <Image src="/001.jpg" layout="fill" alt="" />
+                <Image src="/002.jpg" layout="fill" alt="" />
+                <Image src="/003.jpg" layout="fill" alt="" />
+                <Image src="/004.jpg" layout="fill" alt="" />
 
             </Carousel>
         </div>
