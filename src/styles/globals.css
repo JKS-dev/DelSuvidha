@@ -2,27 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background: #f3f3f3;
+}
 
-/* Add this CSS to your global CSS or App.css file */
-.slide-enter {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  
-  .slide-enter-active {
-    opacity: 1;
-    transform: translateX(0%);
-    transition: opacity 300ms, transform 300ms;
-  }
-  
-  .slide-exit {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-  
-  .slide-exit-active {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: opacity 300ms, transform 300ms;
-  }
-  
+::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0C2D57;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #FC6736;
+}
