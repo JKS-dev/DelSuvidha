@@ -6,12 +6,19 @@ import Logo from '../../../public/Logo.svg'
 import whiteLogo from '../../../public/LogoWhite.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
+<<<<<<< HEAD
+
+import {UserFloatingMenu} from '@/components/FloatingMenu/UserFloatingMenu'
+import { SimpleBtn } from '../Btn/Btn';
+
+=======
 import { Abril_Fatface } from "next/font/google";
 import { UserFloatingMenu } from '@/components/FloatingMenu/UserFloatingMenu'
 import { SimpleBtn, Btn, GrayBtn } from '../Btn/Btn';
 import { useState } from "react"
 
 const abrilFatface = Abril_Fatface({ weight: '400', subsets: ["latin"] });
+>>>>>>> ed0fa36329ee6d1c4be5fe3b0d54c34681b56d36
 
 export function NavBar() {
   const [clicked, setClicked] = useState(false);
@@ -19,6 +26,23 @@ export function NavBar() {
   const pathName = usePathname().split('/');
   console.log(pathName);
 
+<<<<<<< HEAD
+    return (
+        <nav>
+             {
+                pathName[1] !== "Auth"?
+                <div className={styles.NavBar}>
+                <div onClick={()=>(router.push("/"))} className={styles.Logo}>
+                <Link href='/' className="flex h-full items-center font-Logo">
+                    <Image
+                        src={Logo}
+                        alt="Logo"
+                        width="144"
+                        height="48"
+                        className='cursor-pointer m-2'
+                        priority
+                    />
+=======
   return (
     <nav >
       {
@@ -34,6 +58,7 @@ export function NavBar() {
                   className='cursor-pointer m-2'
                   priority
                 />
+>>>>>>> ed0fa36329ee6d1c4be5fe3b0d54c34681b56d36
 
               </Link>
             </div>
