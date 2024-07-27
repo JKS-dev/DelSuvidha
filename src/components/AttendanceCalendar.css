@@ -1,0 +1,241 @@
+:root {
+  --primary: #2D4356;
+  /* Dark Gray */
+  --secondary: #3B82F6;
+  /* Bright Blue */
+  --accent: #10B981;
+  /* Green */
+  --background: #041C32;
+  /* Light Gray */
+  --white: #FFFFFF;
+  /* White */
+  --text: #DDE6ED;
+  /* Very Dark Gray */
+}
+
+
+.calendar {
+  /* height: max-content; */
+  height: 100%;
+  width: max-content;
+  background: var(--primary);
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+
+  /* transform: scale(1.25); */
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--secondary);
+  padding: 10px;
+}
+
+.calendar-body {
+  padding: 5px;
+}
+
+.calendar-week-day {
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: 600;
+}
+
+.calendar-week-day div {
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  color: var(--white);
+}
+
+.calendar-days div {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  /* animation: to-top 1s forwards; */
+  border-radius: 5px;
+}
+.calendar-days .calendar-day {
+  border: solid 1px rgba(255, 255, 255, 0.2);
+ 
+}
+.year[wobble='-1'],
+.calendar-days[wobble='-1'] div{
+  animation: left .5s ease 0s 1 normal forwards;
+}
+.year[wobble='1'],
+.calendar-days[wobble='1'] div{
+  animation: right .5s ease 0s 1 normal forwards;
+}
+
+@keyframes left {
+	0% {
+		opacity: 0;
+		transform: translateX(-150px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes right {
+	0% {
+		opacity: 0;
+		transform: translateX(150px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+.calendar-days div span {
+  position: absolute;
+}
+
+.calendar-days div.curr-date,
+.calendar-days div.curr-date:hover {
+  background-color: var(--secondary);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.calendar-days div.curr-date span {
+  display: none;
+}
+
+.monthPicker {
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.monthPicker:hover {
+  background-color: var(--accent);
+}
+
+.yearPicker {
+  display: flex;
+  color: var(--text);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.yearPicker #year{
+  display: flex;
+  cursor: pointer;
+  color: var(--secondary);
+}
+.yearChange {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.yearChange:hover {
+  background-color: var(--accent);
+}
+
+.month-list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #24384A;
+  padding: 10px;
+  grid-template-columns: repeat(3, auto);
+  gap: 5px;
+  display: grid;
+  transform: scale(1.5);
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-100%);
+}
+
+.month-list.show {
+  transform: scale(1);
+  visibility: visible;
+  pointer-events: visible;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0%);
+
+}
+
+.month-list > div {
+  display: grid;
+  place-items: center;
+}
+
+.month-list > div > div {
+  width: 100%;
+  /* padding: 5px 20px; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+  background: var(--primary);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.month-list > div > div:hover {
+  background-color: var(--accent);
+}
+
+@keyframes to-top {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.present-day {
+  background-color: #4ade80 ;
+  color: white;
+  border-radius: 12px;
+}
+
+.absent-day {
+  background-color: #f87171 ;
+  color: white;
+  border-radius: 12px;
+}
+
+.today-date {
+  background-color: var(--secondary);
+  color: var(--text);
+  border-radius: 12px;
+}
