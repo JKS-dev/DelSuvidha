@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import useUserStore from '@/app/lib/userStore';
 import { auth } from '@/app/lib/firebase';
 
 const withAuth = (WrappedComponent) => {
-  return (props) => {
+  const WithAuth = (props) => {
     const router = useRouter();
     const { currentUser, isLoading, fetchUserInfo } = useUserStore();
 
@@ -32,17 +32,27 @@ const withAuth = (WrappedComponent) => {
     };
 
     if (isLoading) {
-      return <div className="loading">
-        <div class="spinner"></div>
-      </div>;
+      return (
+        <div className="loading">
+          <div className="spinner"></div>
+        </div>
+      );
     }
 
     if (!currentUser) {
-      return <div className="loading"><div class="Spinner"></div></div>;
+      return (
+        <div className="loading">
+          <div className="spinner"></div>
+        </div>
+      );
     }
 
     return <WrappedComponent {...props} />;
   };
+
+  WithAuth.displayName = `WithAuth(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+
+  return WithAuth;
 };
 
 export default withAuth;

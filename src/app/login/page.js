@@ -70,8 +70,16 @@ export default function Login() {
 
       toast.success('Account created! You can login now!');
     } catch (err) {
-      console.log(err);
-      toast.error(err.message);
+      console.error('Error:', JSON.stringify(err));
+
+      // Extract and customize the error message
+      let error = err.code;
+      let customError = error.replace('auth/', '').replaceAll('-', ' ');
+
+      // Capitalize the first letter of each word 
+      customError = customError.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+      toast.error(customError);
     } finally {
       setLoading(false);
     }
@@ -89,8 +97,16 @@ export default function Login() {
         router.push('/dashboard');
       });
     } catch (err) {
-      console.log(err);
-      toast.error(err.message);
+      console.error('Error:', JSON.stringify(err));
+
+      // Extract and customize the error message
+      let error = err.code;
+      let customError = error.replace('auth/', '').replaceAll('-', ' ');
+
+      // Capitalize the first letter of each word 
+      customError = customError.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+      toast.error(customError);
     } finally {
       setLoading(false);
     }

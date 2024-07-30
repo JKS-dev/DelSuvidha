@@ -1,13 +1,13 @@
 :root {
 
 
-  --primary: #2D4356;
+  --primary: #31363F;
   /* Dark Gray */
   --secondary: #3B82F6;
   /* Bright Blue */
   --accent: #10B981;
   /* Green */
-  --background: #041C32;
+  --background: #222831;
   /* Light Gray */
   --white: #FFFFFF;
   /* White */
@@ -31,10 +31,11 @@
 }
 
 .dashboard {
-  overflow-y: scroll;
-
+  /* overflow-y: scroll; */
   /* flex-wrap: wrap; */
-
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
   .title {
     padding: 10px 0;
     font-size: 18px;
@@ -173,21 +174,12 @@
       li {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        /* width: 100%; */
         border-radius: 10px;
 
         h1 {
           font-size: 18px;
           font-weight: 500;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          .bi {
-            height: 24px;
-            width: 24px;
-          }
-
 
         }
 
@@ -195,6 +187,7 @@
           margin-top: 10px;
           background: var(--primary);
           width: 100%;
+          height: 100%;
           padding: 20px;
           border-radius: 10px;
         }
