@@ -1,0 +1,95 @@
+<svg id="parabolic-pentagon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 2000 1500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    project-id="e54641003aa946ee8bf11fe883c90b21" export-id="92fc54afc28c4c23a5f2ec6b9ea99ceb" cached="false">
+    <style>
+        <![CDATA[
+        #parabolic-pentagon-s-g1_tr {
+            animation: parabolic-pentagon-s-g1_tr__tr 400ms linear  normal backwards
+        }
+
+        @keyframes parabolic-pentagon-s-g1_tr__tr {
+            0% {
+                transform: translate(1000px, 750px) rotate(90deg)
+            }
+
+            100% {
+                transform: translate(1000px, 750px) rotate(0deg)
+            }
+        }
+        ]]>
+    </style>
+    <defs>
+        <path id="parabolic-pentagon-u-a"
+            d="M0.74,-509.63l485.39,352.65-185.4,570.61h-599.97l-185.4-570.61L0.74,-509.63m0-1.24l-486.56,353.51l185.85,571.99h601.42L487.3,-157.36L0.74,-510.87v0Z" />
+    </defs>
+    <rect id="parabolic-pentagon-s-rect1" width="2000" height="1500" rx="0" ry="0" transform="translate(.000008 0)"
+        fill="#222831" />
+    <g id="parabolic-pentagon-s-g1_tr" transform="translate(1000,750) rotate(360)">
+        <g id="parabolic-pentagon-s-g1" transform="scale(0.9,0.9) translate(28.315672,1242.578836)">
+            <g id="parabolic-pentagon-s-g2" transform="matrix(.844328 0.535827-.535827 0.844328 0.000057-.000132)">
+                <g id="parabolic-pentagon-s-g3" transform="matrix(-.939693-.34202 0.34202-.939693 0 0)">
+                    <g id="parabolic-pentagon-s-g4" transform="translate(1000 750)">
+                        <use id="parabolic-pentagon-s-use1" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(1.08329 0.191013-.191013 1.08329 0 0)" fill="none" stroke="#222831"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use2" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(1.12763 0.410424-.410424 1.12763-.000001 0)" fill="none" stroke="#213236"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use3" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a" transform="matrix(1.12583 0.65-.65 1.12583 0 0)"
+                            fill="none" stroke="#203b3c" stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use4" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(1.07246 0.899903-.899903 1.07246 0-.000001)" fill="none" stroke="#1e4541"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use5" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(.964181 1.14907-1.14907 0.964181 0.000001 0)" fill="none" stroke="#1d4f46"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use6" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a" transform="matrix(.8 1.38564-1.38564 0.8 0-.000001)"
+                            fill="none" stroke="#1c584c" stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use7" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(.581434 1.59748-1.59748 0.581434 0 0)" fill="none" stroke="#1b6251"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use8" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(.312567 1.77265-1.77265 0.312567-.000001 0)" fill="none" stroke="#1a6c56"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use9" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a" transform="matrix(0 1.9-1.9 0 0 0)" fill="none"
+                            stroke="#18755c" stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use10" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(-.347296 1.96962-1.96962-.347296 0-.000001)" fill="none" stroke="#177f61"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use11" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(-.718242 1.97335-1.97335-.718242 0 0)" fill="none" stroke="#168966"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use12" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a" transform="matrix(-1.1 1.90526-1.90526-1.1 0 0)"
+                            fill="none" stroke="#15926c" stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use13" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(-1.47841 1.7619-1.7619-1.47841 0.000001-.000001)" fill="none"
+                            stroke="#149c71" stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use14" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a"
+                            transform="matrix(-1.83851 1.54269-1.54269-1.83851 0 0.000001)" fill="none" stroke="#12a676"
+                            stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use15" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a" transform="matrix(-2.16506 1.25-1.25-2.16506 0 0)"
+                            fill="none" stroke="#11af7c" stroke-width="128" />
+                        <use id="parabolic-pentagon-s-use16" width="973.119995" height="925.5"
+                            xlink:href="#parabolic-pentagon-u-a" transform="matrix(-2.4432 0.889252-.889252-2.4432 0 0)"
+                            fill="none" stroke="#10b981" stroke-width="128" />
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

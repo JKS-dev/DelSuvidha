@@ -1,0 +1,45 @@
+:root {
+    --primary: #31363F;
+    /* Dark Gray */
+    --secondary: #3B82F6;
+    /* Bright Blue */
+    --accent: #10B981;
+    /* Green */
+    --background: #222831;
+    /* Light Gray */
+    --white: #FFFFFF;
+    /* White */
+    --text: #DDE6ED;
+    
+    /* Very Dark Gray */
+  }
+
+  .doubt {
+    background: var(--primary);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%2310B981"><path d="M0 0v60c9 0 18-3 25-10 13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s36 14 50 0c13-14 36-14 50 0s37 13 50 0c14-14 37-14 50 0 7 7 16 10 25 10V0H0Z"></path></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.doubt-button { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    width: 45%;
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    color: var(--text);
+    font-size: 16px;
+    border-radius: 0.5rem;
+    padding: 1rem 0;
+    background: rgba(20, 0, 0, 0.1);
+    backdrop-filter: blur(5px) saturate(110%);
+    transition: var(--background) 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.doubt-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    /* transform: scale(1.05); */
+}
