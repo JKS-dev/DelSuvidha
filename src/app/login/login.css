@@ -5,3 +5,12 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  transition: background-color 5000s;
+  background: white;
+  -webkit-text-fill-color: #000 !important;
+  caret-color: black;
+}

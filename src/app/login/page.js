@@ -203,25 +203,25 @@ export default function Login() {
       <div className="w-screen max-w-64">
         <form onSubmit={handleLogin} className='flex flex-col gap-1 w-full'>
           <h1 className='welcomeH1 p-1 font-extrabold text-3xl'>Welcome</h1>
-          <div className='bg-white p-1 rounded-t-lg text-black w-full flex flex-col relative min-h-12 justify-center'>
+          <div className='bg-none  text-black w-full flex flex-col relative min-h-12 justify-center'>
             <input
               type="text"
               placeholder="Email"
               name="email"
               value={email}
               onChange={handleEmailChange}
-              className='bg-white text-black p-1 w-full h-full outline-none'
+              className='bg-white rounded-t-lg text-lg  text-black p-1 w-full h-full flex-1 outline-none'
             />
-            {emailError && <p className="text-red-500 p-1 text-xs h-1/4">{emailError}</p>}
+            {emailError && <p className="text-red-500 pl-1 text-xs h-1/4 bg-white">{emailError}</p>}
           </div>
-          <div className='bg-white p-1 rounded-b-lg text-black w-full flex flex-col relative min-h-12 justify-center'>
+          <div className='bg-white rounded-b-lg text-black w-full flex flex-col relative min-h-12 justify-center'>
             <input
               type="password"
-              placeholder="password"
+              placeholder="Password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className='bg-white text-black p-1 w-full h-full outline-none'
+              className='bg-white text-black p-1 text-lg  w-full h-full outline-none'
             />
             {formError && <p className="text-red-500 p-1 text-xs h-1/4">{formError}</p>}
           </div>
