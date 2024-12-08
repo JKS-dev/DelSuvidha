@@ -7,6 +7,7 @@ const Home = () => {
       <Link href={'/dashboard'}>Dashboard</Link>
       <Link href={'/login'}>Login</Link>
     </div>
+    
   )
 }
 export default Home;

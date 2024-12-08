@@ -221,7 +221,7 @@ export default function Login() {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className='bg-white text-black p-1 text-lg  w-full h-full outline-none'
+              className='bg-white text-black p-1 text-lg   w-full h-full outline-none'
             />
             {formError && <p className="text-red-500 p-1 text-xs h-1/4">{formError}</p>}
           </div>
