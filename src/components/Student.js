@@ -1,6 +1,6 @@
 'use client'
 
-import useUserStore from '@/app/lib/userStore';
+import useUserStore from '@/lib/userStore';
 // import '@/app/styles/dashboard.css'
 import './Student.css'
 import AttendanceCalendar from '@/components/AttendanceCalendar';

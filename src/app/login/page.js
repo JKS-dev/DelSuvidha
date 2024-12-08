@@ -131,7 +131,7 @@
 import { useState } from 'react';
 import './login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/app/lib/firebase';
+import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import Notification from '@/components/Notification';
 import { toast } from 'react-toastify';

@@ -1,4 +1,4 @@
-import useUserStore from "@/app/lib/userStore";
+import useUserStore from "@/lib/userStore";
 import { CircularProgress } from "@nextui-org/react";
 import Image from 'next/image'
 import '@/app/globals.css'

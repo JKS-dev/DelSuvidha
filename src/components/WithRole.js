@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import useUserStore from '@/app/lib/userStore';
-import { auth } from '@/app/lib/firebase';
+import useUserStore from '@/lib/userStore';
+import { auth } from '@/lib/firebase';
 
 const withAuth = (WrappedComponent) => {
   const WithAuth = (props) => {

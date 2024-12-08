@@ -1,7 +1,7 @@
 "use client"
 
 import withRole from '@/components/WithRole';
-import useUserStore from '../lib/userStore';
+import useUserStore from '@/lib/userStore';
 import Admin from '@/components/Admin';
 import Educator from '@/components/Educator';
 import Student from '@/components/Student';

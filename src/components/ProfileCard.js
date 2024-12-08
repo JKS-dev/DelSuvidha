@@ -1,6 +1,6 @@
 import { CircularProgress } from "@nextui-org/react";
 import '@/app/globals.css'
-import useUserStore from "@/app/lib/userStore";
+import useUserStore from "@/lib/userStore";
 import { useRouter } from "next/navigation";
 import ProfileImg from "./ProfileImg";
 

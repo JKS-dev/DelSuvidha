@@ -1,5 +1,5 @@
-import { auth } from "@/app/lib/firebase";
-import useUserStore from "@/app/lib/userStore";
+import { auth } from "@/lib/firebase";
+import useUserStore from "@/lib/userStore";
 import { NextUIProvider } from "@nextui-org/system";
 import "@/app/globals.css";
 

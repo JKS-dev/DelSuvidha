@@ -1,4 +1,4 @@
-import useUserStore from "@/app/lib/userStore"
+import useUserStore from "@/lib/userStore"
 import { useRouter } from "next/navigation";
 import Chart from "./Chart";
 
