@@ -46,7 +46,7 @@ Welcome to **DelSuvidha** — a revolutionizing school management system designe
 ### **Tech Stack**  
 - **Frontend**: React.js with Next.js  
 - **State Management**: Zustand  
-- **Design**: CSS + **NextUI** (Modern, with a touch of **neumorphism** 💎)  
+- **Design**: CSS + **NextUI**
 - **Backend**: Firebase Realtime Database  
 
 ---
